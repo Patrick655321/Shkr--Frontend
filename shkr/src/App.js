@@ -1,8 +1,7 @@
-// import Drink from './components/Drink'
+
 import "./App.css"
 
-import { DrinkList } from './components/DrinkList';
-import Drink from './Drink';
+import Drink from './components/Drink';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -11,7 +10,6 @@ const getDrinks = async() => {
   const res = await fetch(`http://localhost:3010/drinks/name/${query}`)
   const data = await res.json()
   setDranks(data.drinks)
-  console.log(dranks)
 }
 
 const [dranks, setDranks] = useState([]);
@@ -22,12 +20,12 @@ useEffect(() =>{
   getDrinks()
 }, [query])
 
-const updateSearch = e => {
-  setSearch(e.target.value);
+const updateSearch = event => {
+  setSearch(event.target.value);
 }
 
-const getSearch = e => {
-  e.preventDefault();
+const getSearch = event => {
+  event.preventDefault();
   setQuery(search)
   setSearch('')
 }
@@ -36,18 +34,29 @@ const getSearch = e => {
     <div className="App">
       <form onSubmit={getSearch} className="search-form">
       <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
-      < button className="searchbutton" type="submit" >
+      < button className="search-button" type="submit" >
         Search
         </button>
       </form>
-      <DrinkList/>
-      {dranks.map(drank =>(
+      <div className="drinkInfo">
+      {dranks.map((drank) => {
+        const ingredients = [];
+        for (let i = 1; i <= 15; i++) {
+          const ingredientName = drank[`strIngredient${i}`];
+          const ingredientMeasure = drank[`strMeasure${i}`];
+          if (ingredientName && ingredientMeasure) {
+            ingredients.push({name: ingredientName, measure:ingredientMeasure});
+          }
+        }
+        return(
         <Drink
         key={drank.strDrink}
         name={drank.strDrink}
+        ingredients={ingredients}
         instr={drank.strInstructions}
         image={drank.strDrinkThumb}/>
-      ))}
+)})}
+      </div>
     </div>
   );
 }
