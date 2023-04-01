@@ -1,17 +1,20 @@
 import React from 'react';
+import DrinkName from './styled/DrinkName';
+import ResultsContainer from './styled/DisplayedResults';
+import DrinkInstructions from './styled/DrinkInstructions';
 
 const Drink = ({ name, instr, image, ingredients}) => {
     return (
-        <div>
+        <ResultsContainer>
             <img src={image} alt={name} style={{borderRadius: '180px', height:250 }} />
-            <h1>{name}</h1>
+            <DrinkName>{name}</DrinkName>
             <ul>
                 {ingredients.map(({name, measure }, index) => (
                     <li key={index}>{name}: {measure}</li>
                 ))}
             </ul>
-            <p>{instr}</p>
-        </div>
+            <DrinkInstructions>{instr}</DrinkInstructions>
+        </ResultsContainer>
     );
 }
 

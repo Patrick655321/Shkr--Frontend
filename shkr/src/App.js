@@ -38,7 +38,7 @@ const getSearch = event => {
         Search
         </button>
       </form>
-      <div className="drinkInfo">
+      <div className="drink-info">
       {dranks.map((drank) => {
         const ingredients = [];
         for (let i = 1; i <= 15; i++) {
