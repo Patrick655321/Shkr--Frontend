@@ -11,9 +11,7 @@ const testing = keyframes`
     `;
 
 const DrinkName = styled.h1`
-    color: IndianRed;
-    `
-
-
+  color: IndianRed;
+`;
 
 export default DrinkName;

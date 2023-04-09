@@ -1,6 +1,7 @@
 
 import "./App.css"
 
+import NavBar from "./components/mui/NavBar";
 import Button from "./components/styled/Button";
 import Drink from './components/Drink';
 import { useEffect, useState } from 'react';
@@ -33,6 +34,7 @@ const getSearch = event => {
 
   return (
     <div className="App">
+      <NavBar />
       <form onSubmit={getSearch} className="search-form">
       <input className="search-bar" type="text" style={{margin: '10px'}} value={search} onChange={updateSearch}/>
       <Button className="search-button" type="submit" >
