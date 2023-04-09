@@ -2,7 +2,8 @@ import { AppBar, Box, Button, Container, Toolbar, Typography, responsiveFontSize
 import AdbIcon from '@mui/icons-material/Adb'
 import shadows from "@mui/material/styles/shadows"
 
-const pages = ['Search By Name', 'Search By Ingredient', '5 Fruity', '5 Fizzy', '5 Strong', '5 Non-Alc']
+const NavBarItems = [{title: 'Search By Name',
+id: '#searchByName'}, {title: 'Search By Ingredient', id: '#searchByIngredient'}, {title: '5 Fruity', id: "#fruity"}, {title: '5 Fizzy', id: '#fizzy'}, {title: "5 Strong", id: "#strong"}, {title: '5 Non-Alc', id: '#nonalc'}]
 
 function NavBar() {
     return (
@@ -28,9 +29,9 @@ function NavBar() {
                         SHKR
                     </Typography>
                     <Box sx={{flexGrow: 1, display: 'flex'}}>
-                        {pages.map((page) => (
-                        <Button key={page} onClick='' sx={{my:2, color: 'white', display: 'block'}}>
-                            {page}
+                        {NavBarItems.map((page) => (
+                        <Button key={page.id} onClick='' sx={{my:2, color: 'white', display: 'block'}}>
+                            {page.title}
                         </Button>
                         ))}
                     </Box>

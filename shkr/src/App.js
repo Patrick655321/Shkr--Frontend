@@ -1,10 +1,10 @@
-
-import "./App.css"
+import './App.css'
 
 import NavBar from "./components/mui/NavBar";
 import Button from "./components/styled/Button";
 import Drink from './components/Drink';
 import { useEffect, useState } from 'react';
+import AddForbidden from "./components/addForbidden";
 
 function App() {
 
@@ -16,7 +16,7 @@ const getDrinks = async() => {
 
 const [dranks, setDranks] = useState([]);
 const [search, setSearch] = useState('');
-const [query, setQuery] = useState('martini')
+const [query, setQuery] = useState('')
 
 useEffect(() =>{
   getDrinks()
@@ -35,6 +35,7 @@ const getSearch = event => {
   return (
     <div className="App">
       <NavBar />
+      <AddForbidden></AddForbidden>
       <form onSubmit={getSearch} className="search-form">
       <input className="search-bar" type="text" style={{margin: '10px'}} value={search} onChange={updateSearch}/>
       <Button className="search-button" type="submit" >

@@ -7,7 +7,7 @@ import DrinkInstructions from './styled/DrinkInstructions';
 const Drink = ({ name, instr, image, ingredients}) => {
     return (
         <ResultsContainer>
-            <img src={image} alt={name} style={{borderRadius: '180px', height:250,}} />
+            <img src={image} alt={name} style={{borderRadius: '180px', height:250, boxShadow: '2px 2px 30px rgba(33, 2, 71, 0.5)' }} />
             <DrinkName>{name}</DrinkName>
             <ul>
                 {ingredients.map(({name, measure }, index) => (
