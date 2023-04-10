@@ -35,7 +35,6 @@ const getSearch = event => {
   return (
     <div className="App">
       <NavBar />
-      <AddForbidden></AddForbidden>
       <form onSubmit={getSearch} className="search-form">
       <input className="search-bar" type="text" style={{margin: '10px'}} value={search} onChange={updateSearch}/>
       <Button className="search-button" type="submit" >
@@ -60,6 +59,7 @@ const getSearch = event => {
         instr={drank.strInstructions}
         image={drank.strDrinkThumb}/>
 )})}
+        <AddForbidden />
       </div>
     </div>
   );

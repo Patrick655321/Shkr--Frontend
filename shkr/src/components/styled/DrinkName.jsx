@@ -12,6 +12,9 @@ const testing = keyframes`
 
 const DrinkName = styled.h1`
   color: IndianRed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default DrinkName;
