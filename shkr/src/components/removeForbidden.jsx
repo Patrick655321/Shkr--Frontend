@@ -15,38 +15,28 @@ const InputWrapper = styled.div`
   margin-bottom: 2px;
 `;
 
-function AddForbidden() {
-  const [forbidden, setForbidden] = useState({
+function RemoveForbidden() {
+  const [unforbid, setUnforbid] = useState({
     drink: ""
   });
 
-  const [errorMessage, setErrorMessage] = useState(null)
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    api.post("/products/forbidden/add", forbidden)
+    api.patch("/products/forbidden/remove", unforbid)
     .then((res) => res.data)
     .then((json) => console.log(json))
-    .catch((error) => {
-      setErrorMessage(error.response.data.error)
-    })
-    
-    
-    if(!forbidden.drink) {
-      setErrorMessage("Please enter drink name to be added to forbidden list")
-    }
   };
 
   const handleOnChange = (e) => {
     console.log(e.target.name)
     console.log(e.target.value)
-    setForbidden({[e.target.name]: e.target.value})
+    setUnforbid({[e.target.name]: e.target.value})
 
   };
 
   return (
-    <div id="addForbidden">
-      <DrinkName>Add Forbidden</DrinkName>
+    <div id="removeForbidden">
+      <DrinkName>Remove Forbidden</DrinkName>
       <form
         style={{
           display: "flex",
@@ -60,17 +50,14 @@ function AddForbidden() {
           <input
             type="text"
             name="drink"
-            value={forbidden.drink}
+            value={unforbid.drink}
             onChange={handleOnChange}
           />
         </InputWrapper>
-        <input type="submit" value="Add Forbidden" />
-        <div>
-          {errorMessage}
-          </div>
+        <input type="submit" value="Remove Forbidden" />
       </form>
     </div>
   );
 }
 
-export default AddForbidden;
+export default RemoveForbidden;
