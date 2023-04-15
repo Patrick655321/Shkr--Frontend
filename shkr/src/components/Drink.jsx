@@ -19,4 +19,4 @@ const Drink = ({ name, instr, image, ingredients}) => {
     );
 }
 
-export default Drink
+export default Drink 

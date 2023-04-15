@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const testing = keyframes`
+const colorChange = keyframes`
     from {color: IndianRed;
     }
     50% {
@@ -15,6 +15,9 @@ const DrinkName = styled.h1`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  animation-name: ${colorChange};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+`
 
 export default DrinkName;
