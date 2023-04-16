@@ -59,7 +59,8 @@ function Login() {
         .then((res) => res.data)
         .then((json) => {
             console.log(json)
-            setUserFetched(true)})
+            setUserFetched(true)
+            localStorage.setItem("token", json.token)})
         .catch((err) => {
             setErrorMessage((prevErrMsg) => {
                 return {
