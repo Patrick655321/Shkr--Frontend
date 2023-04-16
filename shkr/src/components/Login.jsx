@@ -23,6 +23,8 @@ function Login() {
     password: null,
   });
 
+  const [userFetched, setUserFetched] = useState(false)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let haveError = false
@@ -55,7 +57,9 @@ function Login() {
         axios
         .post("/user/login", user)
         .then((res) => res.data)
-        .then((json) => console.log(json))
+        .then((json) => {
+            console.log(json)
+            setUserFetched(true)})
         .catch((err) => {
             setErrorMessage((prevErrMsg) => {
                 return {
@@ -78,6 +82,10 @@ function Login() {
 
 
   return (
+    <>
+    {userFetched ? (
+        <DrinkName>Welcome {user.username}!</DrinkName>
+    ) : (
     <div>
       <DrinkName>Admin Login</DrinkName>
       <form
@@ -113,7 +121,8 @@ function Login() {
           <input type="submit" value="login" />
         </div>
       </form>
-    </div>
+    </div>)}
+    </>
   );
 }
 
