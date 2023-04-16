@@ -15,6 +15,7 @@ function Login() {
   const [user, setUser] = useState({
     username: "",
     password: "",
+    apiError: null,
   });
 
   const [errorMessage, setErrorMessage] = useState({
@@ -45,12 +46,24 @@ function Login() {
     }
 
     if (!haveError) {
+        setErrorMessage({
+            username: null,
+            password: null,
+            apiError: null
+        })
 
         axios
         .post("/user/login", user)
         .then((res) => res.data)
         .then((json) => console.log(json))
-        .catch((err) => {});
+        .catch((err) => {
+            setErrorMessage((prevErrMsg) => {
+                return {
+                    ...prevErrMsg,
+                apiError: "Username/password combo not found in database"
+            }
+            })
+        });
     }
   };
 
@@ -95,6 +108,7 @@ function Login() {
           />
         </InputWrapper>
           {errorMessage.password}
+          {errorMessage.apiError}
         <div>
           <input type="submit" value="login" />
         </div>

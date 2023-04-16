@@ -38,9 +38,9 @@ function NavBar() {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: "1rem",
               color: "inherit",
-              textDecoration: "non",
+              textDecoration: "none",
               ml: 1,
             }}
           >
@@ -48,14 +48,14 @@ function NavBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: "flex" }}>
             {NavBarItems.map((page) => (
-                <a
+                <a 
                 key={page.title} 
                 style = {{textDecoration: 'none'}}             
                 href={``}>
               <Button
                 key={page.id}
                 onClick=""
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "white", display: "block"}}
               >
                 {page.title}
               </Button>
