@@ -16,6 +16,7 @@ const InputWrapper = styled.div`
 `;
 
 function AddForbidden() {
+  
   const [forbidden, setForbidden] = useState({
     drink: ""
   });

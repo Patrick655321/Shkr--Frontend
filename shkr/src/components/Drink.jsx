@@ -3,6 +3,7 @@ import DrinkName from './styled/DrinkName';
 import ResultsContainer from './styled/DisplayedResults';
 import DrinkInstructions from './styled/DrinkInstructions';
 
+import Review from './Review';
 
 const Drink = ({ name, instr, image, ingredients}) => {
     return (
@@ -15,6 +16,7 @@ const Drink = ({ name, instr, image, ingredients}) => {
                 ))}
             </ul>
             <DrinkInstructions>{instr}</DrinkInstructions>
+            <Review />
         </ResultsContainer>
     );
 }

@@ -4,9 +4,9 @@ import NavBar from "./components/mui/NavBar";
 import Button from "./components/styled/Button";
 import Drink from './components/Drink';
 import { useEffect, useState } from 'react';
-import AddForbidden from "./components/AddForbidden";
-import RemoveForbidden from './components/removeForbidden';
-import Login from './components/Login';
+// import AddForbidden from "./components/AddForbidden";
+// import RemoveForbidden from './components/removeForbidden';
+// import Login from './components/Login';
 
 function App() {
 
@@ -37,7 +37,7 @@ const getSearch = event => {
   return (
     <div className="App">
       <NavBar />
-      <Login />
+      {/* <Login /> */}
       <form onSubmit={getSearch} className="search-form">
       <input className="search-bar" type="text" style={{margin: '10px'}} value={search} onChange={updateSearch}/>
       <Button className="search-button" type="submit" >
@@ -62,8 +62,8 @@ const getSearch = event => {
         instr={drank.strInstructions}
         image={drank.strDrinkThumb}/>
 )})}
-        <AddForbidden />
-        <RemoveForbidden />
+        {/* <AddForbidden />
+        <RemoveForbidden /> */}
       </div>
     </div>
   );
